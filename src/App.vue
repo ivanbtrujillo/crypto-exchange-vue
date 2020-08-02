@@ -1,19 +1,20 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <main>
+    <ce-header />
+    <ce-assets-table />
+  </main>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import CeHeader from '@/components/CeHeader.vue'
+import CeAssetsTable from '@/components/CeAssetsTable.vue'
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    HelloWorld
+    CeHeader,
+    CeAssetsTable
   }
-};
+}
 </script>
 
 <style>
