@@ -6,9 +6,16 @@
       >
         <div class="flex items-center flex-shrink-0 text-white mr-6">
           <ce-icon class="mr-2" />
-          <span class="font-semibold text-xl tracking-tight"
-            >Crypto Exchange</span
+          <router-link to="/" class="font-semibold text-xl tracking-tight"
+            >Crypto Exchange</router-link
           >
+          <router-link
+            v-for="link in links"
+            :key="link.to"
+            class="ml-3 text-sm uppercase text-gray-400"
+            :to="link.to"
+            >{{ link.title }}
+          </router-link>
         </div>
         <div
           class="hidden sm:block w-full block flex-grow lg:flex lg:items-center lg:w-auto"
@@ -24,6 +31,15 @@
 import CeIcon from '@/components/CeIcon.vue'
 export default {
   name: 'CEHeader',
+  data() {
+    return {
+      links: [
+        { title: 'BTC', to: '/coin/bitcoin' },
+        { title: 'ETH', to: '/coin/ethereum' },
+        { title: 'LTC', to: '/coin/litecoin' }
+      ]
+    }
+  },
   components: {
     CeIcon
   }
