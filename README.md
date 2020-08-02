@@ -1,24 +1,9 @@
-# crypto-exchange
+# Cyrpto Exchange
 
-## Project setup
-```
-npm install
-```
+## Description
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Side project created using VueJS, Vue Router, Vue Chartkick and TailwindCSS.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+It uses Coincap's API to get crypto-currency information.
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[View in Netlify](https://cypto-exchange-vue.netlify.app)

@@ -12,7 +12,7 @@
     <table class="w-full">
       <thead>
         <tr class="bg-gray-100  border rounded-md border-gray-400">
-          <th>Moneda</th>
+          <th>Coin</th>
           <th
             class="cursor-pointer hover:bg-gray-300"
             :class="sort"
@@ -20,10 +20,10 @@
           >
             <span>Ranking</span>
           </th>
-          <th>Nombre</th>
-          <th class="text-right">Precio ($)</th>
-          <th class="text-right">Cap. de Mercado</th>
-          <th class="text-right">Variación 24hs</th>
+          <th>Name</th>
+          <th class="text-right">Price ($)</th>
+          <th class="text-right">Market Capital</th>
+          <th class="text-right">Value Change (24h)</th>
 
           <td class="hidden sm:block"></td>
         </tr>
@@ -68,7 +68,7 @@
           </td>
 
           <td class="hidden sm:block">
-            <ce-button @click="goToCoin(a.id)"><span>Detalle</span></ce-button>
+            <ce-button @click="goToCoin(a.id)"><span>Details</span></ce-button>
           </td>
         </tr>
       </tbody>

@@ -24,23 +24,23 @@
               <span>#{{ asset.rank }}</span>
             </li>
             <li class="flex justify-between">
-              <b class="text-gray-600 mr-10 uppercase">Precio actual</b>
+              <b class="text-gray-600 mr-10 uppercase"> Actual price</b>
               <span>{{ asset.priceUsd | dollar }}</span>
             </li>
             <li class="flex justify-between">
-              <b class="text-gray-600 mr-10 uppercase">Precio más bajo</b>
+              <b class="text-gray-600 mr-10 uppercase">Lowest Price</b>
               <span>{{ min | dollar }}</span>
             </li>
             <li class="flex justify-between">
-              <b class="text-gray-600 mr-10 uppercase">Precio más alto</b>
+              <b class="text-gray-600 mr-10 uppercase">Highest Price</b>
               <span>{{ max | dollar }}</span>
             </li>
             <li class="flex justify-between">
-              <b class="text-gray-600 mr-10 uppercase">Precio Promedio</b>
+              <b class="text-gray-600 mr-10 uppercase">Avg Price</b>
               <span>{{ avg | dollar }}</span>
             </li>
             <li class="flex justify-between">
-              <b class="text-gray-600 mr-10 uppercase">Variación 24hs</b>
+              <b class="text-gray-600 mr-10 uppercase">Variation (24h)</b>
               <span>{{ asset.changePercent24Hr | percent }}</span>
             </li>
           </ul>
@@ -51,7 +51,7 @@
             class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
             @click="toggleConverter"
           >
-            {{ fromUsd ? `USD a ${asset.symbol}` : `${asset.symbol} a USD` }}
+            {{ fromUsd ? `USD to ${asset.symbol}` : `${asset.symbol} to USD` }}
           </button>
 
           <div class="flex flex-row my-5">
@@ -60,7 +60,7 @@
                 id="convertValue"
                 type="number"
                 :placeholder="
-                  fromUsd ? ` Valor en USD` : `Valor en ${asset.symbol}`
+                  fromUsd ? ` Value (USD)` : `Value (${asset.symbol})`
                 "
                 class="text-center mr-2 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
                 v-model="convertValue"
@@ -82,7 +82,7 @@
         :max="max"
         :data="history.map(h => [h.date, parseFloat(h.priceUsd).toFixed(2)])"
       />
-      <h3 class="text-xl my-10">Mejores Ofertas de Cambio</h3>
+      <h3 class="text-xl my-10">Best Exchange Rates</h3>
       <table class="w-full">
         <tr
           class="border-b"
@@ -97,7 +97,7 @@
           <td>
             <a v-if="m.url" target="_blank">{{ m.url }}</a>
             <ce-button :isLoading="m.isLoading" v-else @click="getWebsite(m)">
-              <slot>Obtener link</slot>
+              <slot>Get link</slot>
             </ce-button>
           </td>
         </tr>
