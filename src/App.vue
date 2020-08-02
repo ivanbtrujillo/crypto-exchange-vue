@@ -1,18 +1,16 @@
 <template>
   <main>
     <ce-header />
-    <ce-assets-table />
+    <router-view class="container px-5 sm:px-20 py-20 flex justify-center" />
   </main>
 </template>
 
 <script>
 import CeHeader from '@/components/CeHeader.vue'
-import CeAssetsTable from '@/components/CeAssetsTable.vue'
 export default {
   name: 'App',
   components: {
-    CeHeader,
-    CeAssetsTable
+    CeHeader
   }
 }
 </script>
