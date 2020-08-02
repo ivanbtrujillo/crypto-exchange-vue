@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-end">
     <div class="flex items-center  mb-2">
-      <label>Buscar</label>
+      <label>Search</label>
       <input
         class="border border-gray-400 h-6 p-2 ml-2 rounded-md"
         v-model="search"
