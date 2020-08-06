@@ -3,9 +3,7 @@
     class="flex flex-col h-screen w-screen overflow-y-auto overflow-x-hidden bg-gray-800 text-gray-300"
   >
     <ce-header class="top-0 sticky" />
-    <router-view
-      class="h-full container px-5 sm:px-20 py-5 flex justify-center"
-    />
+    <router-view class="px-5 sm:px-20 py-5 flex justify-center" />
   </main>
 </template>
 
@@ -34,11 +32,13 @@ body {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  font-size: 14px;
 }
 
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
+  height: 10px;
 }
 
 /* Track */

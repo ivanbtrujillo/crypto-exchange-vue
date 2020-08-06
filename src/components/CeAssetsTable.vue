@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-end  h-full ">
+  <div class="flex flex-col items-end  h-full w-full p-4">
     <div class="flex items-center  mb-2">
       <label>Search</label>
       <input
@@ -8,74 +8,74 @@
         value=""
       />
     </div>
+    <div class="overflow-x-auto w-full " style="height: calc(100vh - 200px)">
+      <table class="overflow-auto border border-gray-900 w-full">
+        <thead class="sticky top-0 w-full">
+          <tr class="bg-gray-900  border rounded-md border-gray-900 w-full">
+            <th>Coin</th>
+            <th
+              class="cursor-pointer hover:bg-gray-700"
+              :class="sort"
+              @click="sortByRanking"
+            >
+              <span>Ranking</span>
+            </th>
+            <th>Name</th>
+            <th class="text-right">Price ($)</th>
+            <th class="text-right">Market Capital</th>
+            <th class="text-right">Value Change (24h)</th>
 
-    <div
-      class="overflow-y-auto border border-gray-900"
-      style="height: calc(100vh - 200px)"
-    >
-      <div class="sticky top-0">
-        <tr class="bg-gray-900  border rounded-md border-gray-400">
-          <th>Coin</th>
-          <th
-            class="cursor-pointer hover:bg-gray-700"
-            :class="sort"
-            @click="sortByRanking"
+            <td class="hidden sm:block"></td>
+          </tr>
+        </thead>
+
+        <tbody class=" ">
+          <tr
+            v-for="a in filteredAssets"
+            :key="a.name"
+            class="border-b border-gray-900 hover:bg-gray-700"
           >
-            <span>Ranking</span>
-          </th>
-          <th>Name</th>
-          <th class="text-right">Price ($)</th>
-          <th class="text-right">Market Capital</th>
-          <th class="text-right">Value Change (24h)</th>
+            <td class="flex justify-center">
+              <img
+                class="w-6 h-6 "
+                :src="
+                  `https://static.coincap.io/assets/icons/${a.symbol.toLowerCase()}@2x.png`
+                "
+                :alt="a.name"
+              />
+            </td>
+            <td>#{{ a.rank }}</td>
+            <td>
+              <router-link
+                class="text-blue-400 hover:underline hover:text-blue-600"
+                :to="{ name: 'coin-detail', params: { id: a.id } }"
+                >{{ a.name }}</router-link
+              ><span class="uppercase text-sm text-bold text-gray-600 ml-2 ">{{
+                a.symbol
+              }}</span>
+            </td>
+            <td class="text-right">{{ a.priceUsd | dollar }}</td>
 
-          <td class="hidden sm:block"></td>
-        </tr>
-      </div>
-
-      <div class=" ">
-        <tr
-          v-for="a in filteredAssets"
-          :key="a.name"
-          class="border-b border-gray-200 hover:bg-gray-700"
-        >
-          <td>
-            <img
-              class="w-6 h-6 text-center"
-              :src="
-                `https://static.coincap.io/assets/icons/${a.symbol.toLowerCase()}@2x.png`
+            <td class="text-right">{{ a.marketCapUsd | dollar }}</td>
+            <td
+              class="text-right"
+              :class="
+                a.changePercent24Hr.includes('-')
+                  ? 'text-red-600'
+                  : 'text-green-600'
               "
-              :alt="a.name"
-            />
-          </td>
-          <td>#{{ a.rank }}</td>
-          <td>
-            <router-link
-              class="text-blue-400 hover:underline hover:text-blue-600"
-              :to="{ name: 'coin-detail', params: { id: a.id } }"
-              >{{ a.name }}</router-link
-            ><span class="uppercase text-sm text-bold text-gray-600 ml-2 ">{{
-              a.symbol
-            }}</span>
-          </td>
-          <td class="text-right">{{ a.priceUsd | dollar }}</td>
+            >
+              {{ a.changePercent24Hr | percent }}
+            </td>
 
-          <td class="text-right">{{ a.marketCapUsd | dollar }}</td>
-          <td
-            class="text-right"
-            :class="
-              a.changePercent24Hr.includes('-')
-                ? 'text-red-600'
-                : 'text-green-600'
-            "
-          >
-            {{ a.changePercent24Hr | percent }}
-          </td>
-
-          <td class="hidden sm:block">
-            <ce-button @click="goToCoin(a.id)"><span>Details</span></ce-button>
-          </td>
-        </tr>
-      </div>
+            <td class="hidden sm:block">
+              <ce-button @click="goToCoin(a.id)"
+                ><span>Details</span></ce-button
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -150,6 +150,12 @@ td {
 
 th {
   font-size: 0.6rem;
+}
+
+td,
+th {
+  font-size: 1rem;
+  min-width: 200px;
 }
 
 @media (min-width: 640px) {
