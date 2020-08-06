@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col items-center justify-center">
+  <div class="flex flex-col items-center justify-center ">
     <bounce-loader :loading="isLoading" :color="'#68d391'" :size="100" />
-    <template class="w-full" v-if="asset.id && !isLoading">
+    <template v-if="asset.id && !isLoading">
       <div class="flex flex-col sm:flex-row justify-around items-center w-full">
         <div class="flex flex-col items-center">
           <img

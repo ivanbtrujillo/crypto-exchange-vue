@@ -1,7 +1,7 @@
 <template>
-  <div class="flex items-center justify-center">
+  <div class="flex items-center justify-center flex-1 h-full">
     <bounce-loader :loading="isLoading" :color="'#68d391'" :size="100" />
-    <ce-assets-table v-if="!isLoading" :assets="assets" />
+    <ce-assets-table class=" h-full" v-if="!isLoading" :assets="assets" />
   </div>
 </template>
 

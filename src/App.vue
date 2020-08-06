@@ -1,7 +1,9 @@
 <template>
-  <main>
-    <ce-header />
-    <router-view class="container px-5 sm:px-20 py-20 flex justify-center" />
+  <main class="flex flex-col h-screen overflow-auto">
+    <ce-header class="top-0 sticky" />
+    <router-view
+      class="h-full container px-5 sm:px-20 py-20 flex justify-center"
+    />
   </main>
 </template>
 
@@ -23,5 +25,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
 }
 </style>

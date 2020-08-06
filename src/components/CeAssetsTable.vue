@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-end">
+  <div class="flex flex-col items-end  h-full ">
     <div class="flex items-center  mb-2">
       <label>Search</label>
       <input
@@ -9,8 +9,11 @@
       />
     </div>
 
-    <table class="w-full">
-      <thead>
+    <div
+      class="overflow-y-scroll border border-gray-300"
+      style="height: calc(100vh - 300px)"
+    >
+      <div class="sticky top-0">
         <tr class="bg-gray-100  border rounded-md border-gray-400">
           <th>Coin</th>
           <th
@@ -27,8 +30,9 @@
 
           <td class="hidden sm:block"></td>
         </tr>
-      </thead>
-      <tbody>
+      </div>
+
+      <div class=" ">
         <tr
           v-for="a in filteredAssets"
           :key="a.name"
@@ -71,8 +75,8 @@
             <ce-button @click="goToCoin(a.id)"><span>Details</span></ce-button>
           </td>
         </tr>
-      </tbody>
-    </table>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -89,11 +93,11 @@ const sortAsc = (a, b) => {
   if (Number(a.rank) === Number(b.rank)) return 0
 }
 
-import CeButton from '@/components/CeButton'
+//import CeButton from '@/components/CeButton'
 export default {
   name: 'PxAssetsTable',
   components: {
-    CeButton
+    // CeButton
   },
   data() {
     return {
