@@ -83,25 +83,27 @@
         :data="history.map(h => [h.date, parseFloat(h.priceUsd).toFixed(2)])"
       />
       <h3 class="text-xl my-10">Best Exchange Rates</h3>
-      <table class="w-full">
-        <tr
-          class="border-b"
-          v-for="m in markets"
-          :key="`${m.exchangeId}-${m.priceUsd}`"
-        >
-          <td>
-            <b>{{ m.exchangeId }}</b>
-          </td>
-          <td>{{ m.priceUsd | dollar }}</td>
-          <td>{{ m.baseSymbol }} / {{ m.quoteSymbol }}</td>
-          <td>
-            <a v-if="m.url" target="_blank">{{ m.url }}</a>
-            <ce-button :isLoading="m.isLoading" v-else @click="getWebsite(m)">
-              <slot>Get link</slot>
-            </ce-button>
-          </td>
-        </tr>
-      </table>
+      <div class="w-full flex items-center justify-center">
+        <div>
+          <tr
+            class="border-b"
+            v-for="m in markets"
+            :key="`${m.exchangeId}-${m.priceUsd}`"
+          >
+            <td>
+              <b>{{ m.exchangeId }}</b>
+            </td>
+            <td>{{ m.priceUsd | dollar }}</td>
+            <td>{{ m.baseSymbol }} / {{ m.quoteSymbol }}</td>
+            <td>
+              <a v-if="m.url" target="_blank">{{ m.url }}</a>
+              <ce-button :isLoading="m.isLoading" v-else @click="getWebsite(m)">
+                <slot>Get link</slot>
+              </ce-button>
+            </td>
+          </tr>
+        </div>
+      </div>
     </template>
   </div>
 </template>

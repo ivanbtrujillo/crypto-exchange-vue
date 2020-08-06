@@ -3,21 +3,21 @@
     <div class="flex items-center  mb-2">
       <label>Search</label>
       <input
-        class="border border-gray-400 h-6 p-2 ml-2 rounded-md"
+        class="border text-black border-gray-400 h-6 p-2 ml-2 rounded-md"
         v-model="search"
         value=""
       />
     </div>
 
     <div
-      class="overflow-y-scroll border border-gray-300"
-      style="height: calc(100vh - 300px)"
+      class="overflow-y-auto border border-gray-900"
+      style="height: calc(100vh - 200px)"
     >
       <div class="sticky top-0">
-        <tr class="bg-gray-100  border rounded-md border-gray-400">
+        <tr class="bg-gray-900  border rounded-md border-gray-400">
           <th>Coin</th>
           <th
-            class="cursor-pointer hover:bg-gray-300"
+            class="cursor-pointer hover:bg-gray-700"
             :class="sort"
             @click="sortByRanking"
           >
@@ -36,7 +36,7 @@
         <tr
           v-for="a in filteredAssets"
           :key="a.name"
-          class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100"
+          class="border-b border-gray-200 hover:bg-gray-700"
         >
           <td>
             <img
@@ -93,11 +93,11 @@ const sortAsc = (a, b) => {
   if (Number(a.rank) === Number(b.rank)) return 0
 }
 
-//import CeButton from '@/components/CeButton'
+import CeButton from '@/components/CeButton'
 export default {
   name: 'PxAssetsTable',
   components: {
-    // CeButton
+    CeButton
   },
   data() {
     return {

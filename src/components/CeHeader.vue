@@ -1,9 +1,7 @@
 <template>
   <header class="shadow w-screen">
     <nav>
-      <nav
-        class="flex items-center justify-between flex-wrap bg-purple-700 p-6"
-      >
+      <nav class="flex items-center justify-between flex-wrap bg-gray-900 p-6">
         <div class="flex items-center flex-shrink-0 text-white mr-6">
           <ce-icon class="mr-2" />
           <router-link to="/" class="font-semibold text-xl tracking-tight"

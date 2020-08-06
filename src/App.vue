@@ -1,8 +1,10 @@
 <template>
-  <main class="flex flex-col h-screen overflow-auto">
+  <main
+    class="flex flex-col h-screen w-screen overflow-y-auto overflow-x-hidden bg-gray-800 text-gray-300"
+  >
     <ce-header class="top-0 sticky" />
     <router-view
-      class="h-full container px-5 sm:px-20 py-20 flex justify-center"
+      class="h-full container px-5 sm:px-20 py-5 flex justify-center"
     />
   </main>
 </template>
@@ -30,6 +32,27 @@ export default {
 html,
 body {
   height: 100%;
+  width: 100%;
   overflow: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #1a202d;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 </style>
